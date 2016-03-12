@@ -10,8 +10,15 @@ var ActionModel;
     * @constructor
     */
     ActionModel = function(){
+        var that = this;
         extendSingleton(ActionModel);
-        this.action = ActionHelper.getInstance();
+        require([
+            "bower_components/cb-helpers/action.min", 
+        ], loaded);
+
+        function loaded(){
+            that.action = ActionHelper.getInstance();
+        }
     };
 
     /**

@@ -9,9 +9,17 @@ var ManagerModel;
     * @description Manage global manager functions and actions
     */
     ManagerModel = function(){        
-        extendSingleton(ManagerModel);
-        this.actionModel = ActionModel.getInstance();
+        var that = this;
+        extendSingleton(ManagerModel);                
         this.container = $("body");
+
+        require([
+            "bower_components/cb-models/action.min", 
+        ], loaded);
+
+        function loaded(){
+            that.actionModel = ActionModel.getInstance();
+        }
     };
 
     /**
