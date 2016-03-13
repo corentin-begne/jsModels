@@ -20,7 +20,7 @@ var ManagerModel;
         function loaded(){
             ActionModel.getInstance(loadedModel);
 
-            function loaded(instance){
+            function loadedModel(instance){
                 that.actionModel = instance;
                 if(isDefined(cb)){
                     cb(that);
