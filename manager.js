@@ -51,6 +51,9 @@ var ManagerModel;
             var data = $(element).is("[action-data]") ? $.parseJSON($(element).attr("action-data")) : {};
             if(isDefined(data.class)){
                 data.class = window[data.class].getInstance();
+                if(isDefined(data.class.init)){
+                    data.class.init();
+                }
             }
             if(!isDefined(data.type)){
                 data.type = "click";                    
