@@ -53,7 +53,7 @@ var ManagerModel;
                 data.class = window[data.class].getInstance();
             }
             if(!isDefined(data.type)){
-                data.type = "mousedown";                    
+                data.type = "click";                    
             }
             if(data.type=== "init"){
                 that[data.fn](element, data, event);
