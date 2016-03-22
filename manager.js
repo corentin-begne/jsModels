@@ -47,7 +47,7 @@ var ManagerModel;
         $(container).find(".varInterface").each(addData);
 
         function addData(i, element){
-            data[$(element).attr("id")] = $(element).html();
+            data[$(element).attr("id")] = $(element).html().trim();
             $(element).remove();
         }
         return data;
