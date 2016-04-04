@@ -55,24 +55,24 @@ var ManagerModel;
 
     ManagerModel.prototype.init = function(container) {
         var that = this;       
-        this.container = isDefined(container) ? container : $('body');                    
-        that.container.find(".action").each(addEvent);
+        this.container = isDefined(container) ? container : $('body');           
+        if(isDefined(data.class)){
+            window[data.class].getInstance(loadedClass);               
+        }         
+        function loadedClass(instance){
+            data.class = instance;
+            if(isDefined(data.class.init)){
+                data.class.init();
+            }
+            that.container.find(".action").each(addEvent);
+        }
+        
 
         function addEvent(i, element){
             var data = $(element).is("[action-data]") ? $.parseJSON($(element).attr("action-data")) : {};
-            if(isDefined(data.class)){
-                window[data.class].getInstance(loadedClass);
-                
-            }
             init();
 
-            function loadedClass(instance){
-                data.class = instance;
-                if(isDefined(data.class.init)){
-                    data.class.init();
-                }
-                init();
-            }
+            
 
             function init(){
                 if(!isDefined(data.type)){
