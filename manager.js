@@ -79,7 +79,7 @@ var ManagerModel;
                     that[data.fn](element, data, event);
                 } else {
                     var events = data.type.split(', ');
-                    $.each(events bindEvent);
+                    $.each(events, bindEvent);
                     
                 }
 
