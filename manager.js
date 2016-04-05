@@ -83,7 +83,7 @@ var ManagerModel;
                     
                 }
 
-                function bindEvent(event){
+                function bindEvent(i, event){
                     $(element).unbind(event);
                     $(element).bind(event, sendEvent);
                 }
