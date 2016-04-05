@@ -78,8 +78,14 @@ var ManagerModel;
                 if(data.type=== "init"){
                     that[data.fn](element, data, event);
                 } else {
-                    $(element).unbind(data.type);
-                    $(element).bind(data.type, sendEvent);
+                    var events = data.type.split(', ');
+                    $.each(events bindEvent);
+                    
+                }
+
+                function bindEvent(event){
+                    $(element).unbind(event);
+                    $(element).bind(event, sendEvent);
                 }
 
                 function sendEvent(event){                
