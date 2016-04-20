@@ -59,12 +59,21 @@ var ManagerModel;
         that.container.find(".action").each(addEvent);
 
         function addEvent(i, element){
-            var data = $(element).is("[action-data]") ? $.parseJSON($(element).attr("action-data")) : {};
-            if(isDefined(data.class)){
-                window[data.class].getInstance(loadedClass);
-                
+            var events = $(element).is("[action-data]") ? $.parseJSON($(element).attr("action-data")) : {};
+
+            if($.isArray()){
+                events.forEach(createEvent);
+            } else {
+                createEvent(0, events);
             }
-            init();
+
+            function createEvent(i, data){
+                if(isDefined(data.class)){
+                    window[data.class].getInstance(loadedClass);                
+                }
+                init();    
+            }
+            
 
             function loadedClass(instance){
                 data.class = instance;
