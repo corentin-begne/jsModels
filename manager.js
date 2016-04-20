@@ -72,38 +72,40 @@ var ManagerModel;
                     window[data.class].getInstance(loadedClass);                
                 }
                 init();    
+
+                function loadedClass(instance){
+                    data.class = instance;
+                    init();
+                }
+
+                function init(){
+                    if(!isDefined(data.type)){
+                        data.type = "click";                    
+                    }
+                    if(data.type=== "init"){
+                        that[data.fn](element, data, event);
+                    } else {
+                        $(element).unbind(data.type);
+                        $(element).bind(data.type, sendEvent);
+                    }
+
+                    function sendEvent(event){                
+                        data.fn = isDefined(data.fn) ? data.fn : "action";
+                        if($(element).is("[preventDefault]")){
+                            event.preventDefault();
+                        }
+                        if($(element).is("[stopPropagation]")){
+                            event.stopPropagation();
+                        }
+                        if(isDefined(that[data.fn])){
+                            that[data.fn](element, data, event);                    
+                        }
+                    }
+                }
             }
             
 
-            function loadedClass(instance){
-                data.class = instance;
-                init();
-            }
-
-            function init(){
-                if(!isDefined(data.type)){
-                    data.type = "click";                    
-                }
-                if(data.type=== "init"){
-                    that[data.fn](element, data, event);
-                } else {
-                    $(element).unbind(data.type);
-                    $(element).bind(data.type, sendEvent);
-                }
-
-                function sendEvent(event){                
-                    data.fn = isDefined(data.fn) ? data.fn : "action";
-                    if($(element).is("[preventDefault]")){
-                        event.preventDefault();
-                    }
-                    if($(element).is("[stopPropagation]")){
-                        event.stopPropagation();
-                    }
-                    if(isDefined(that[data.fn])){
-                        that[data.fn](element, data, event);                    
-                    }
-                }
-            }
+            
         }
     };
 
