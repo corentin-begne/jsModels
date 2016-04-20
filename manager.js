@@ -61,7 +61,7 @@ var ManagerModel;
         function addEvent(i, element){
             var events = $(element).is("[action-data]") ? $.parseJSON($(element).attr("action-data")) : {};
 
-            if($.isArray()){
+            if($.isArray(events)){
                 events.forEach(createEvent);
             } else {
                 createEvent(events);
