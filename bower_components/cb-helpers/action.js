@@ -1,4 +1,4 @@
-/*global extendSingleton, getSingleton, isDefined */
+/*global extendSingleton, getSingleton, isDefined, require */
 var ActionHelper;
 (function(){
     "use strict";
@@ -8,8 +8,13 @@ var ActionHelper;
     * @property {String} [basePath] Base path used for ajax call
     * @constructor
     */
-    ActionHelper = function(){
+    ActionHelper = function(cb){
+        var that = this;
         extendSingleton(ActionHelper);
+        loadCss("/bower_components/jquery.percentageloader/index.css");
+        require([
+            "/bower_components/jquery-percentageloader/index.js"
+        ], loaded);
         this.basePath = "/"+$("body").attr("app")+"/";
         var hasOnProgress = ("onprogress" in $.ajaxSettings.xhr());
         if (!hasOnProgress) {
@@ -22,14 +27,20 @@ var ActionHelper;
         function setAjaxSetting(){
             var xhr = oldXHR();
             if(xhr instanceof XMLHttpRequest) {
-                xhr.addEventListener('progress', this.progress, false);
+                xhr.addEventListener("progress", this.progress, false);
             }
             
             if(xhr.upload) {
-                xhr.upload.addEventListener('progress', this.progress, false);
+                xhr.upload.addEventListener("progress", this.progress, false);
             }
             
             return xhr;
+        }
+
+        function loaded(){
+            if(isDefined(cb)){
+                cb(that);
+            }
         }
     };
 
@@ -38,8 +49,12 @@ var ActionHelper;
      * @description get the single class instance
      * @return {ActionHelper} the single class instance
      */
-    ActionHelper.getInstance = function(){
-        return getSingleton(ActionHelper);
+    ActionHelper.getInstance = function(cb){
+        if(isDefined(cb)){
+            getSingleton(ActionHelper, cb);
+        } else {
+            return getSingleton(ActionHelper);
+        }
     };
 
     /**
