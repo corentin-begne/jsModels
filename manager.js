@@ -64,10 +64,10 @@ var ManagerModel;
             if($.isArray()){
                 events.forEach(createEvent);
             } else {
-                createEvent(0, events);
+                createEvent(events);
             }
 
-            function createEvent(i, data){
+            function createEvent(data){
                 if(isDefined(data.class)){
                     window[data.class].getInstance(loadedClass);                
                 }
