@@ -133,6 +133,36 @@ var ManagerModel;
         });
     };
 
+    ManagerModel.prototype.closeInterface = function(element, data, event) {
+        $(element).parents("interface").remove();
+    };
+
+    ManagerModel.prototype.getInterface = function(element, data, event) {
+        var that = this;
+        var name = data.path.split('/');
+        name = ucfirst(name[1])+ucfirst(name[0]);
+        if($(element).is("[modal]")){ // remove old
+            $("interface#"+name).remove();
+        }
+        // get css and manager if not exists
+        if(!isDefined(window[name])){
+            loadCss(basePath+'css/'+data.path+"/main.css");
+            require([basePath+'js/'+data.path+"/manager.min.js"], ready);
+        } else {
+            ready();
+        }
+
+        function ready(){
+            that.actionModel.getHtml(data.path, data, loaded);
+
+            function loaded(html){
+                $("body").append("<interface id='"+name+"'></interface>");
+                $("interface#"+name).append(html);
+                that.init($("interface#"+name));
+            }
+        }
+    };
+
     ManagerModel.prototype.redirect = function(element, data, event) {
         this.actionModel.redirect(data.data.path, $(element).attr("type"));
     };
