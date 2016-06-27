@@ -140,7 +140,7 @@ var ManagerModel;
     ManagerModel.prototype.getInterface = function(element, data, event) {
         var that = this;
         var name = data.path.split('/');
-        name = ucfirst(name[1])+ucfirst(name[0]);
+        name = ucfirst(name[1])+ucfirst(name[0])+"Manager";
         if($(element).is("[modal]")){ // remove old
             $("interface#"+name).remove();
         }
