@@ -141,8 +141,9 @@ var ManagerModel;
         var that = this;
         var name = data.path.split('/');
         name = ucfirst(name[1])+ucfirst(name[0])+"Manager";
-        if($(element).is("[modal]")){ // remove old
-            $("interface#"+name).remove();
+        $("interface#"+name).remove();
+        if($(element).is("[modal]")){ // unique
+            $("interface").remove();
         }
         // get css and manager if not exists
         if(!isDefined(window[name])){
