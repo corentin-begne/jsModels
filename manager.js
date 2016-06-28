@@ -140,13 +140,13 @@ var ManagerModel;
     ManagerModel.prototype.getInterface = function(element, data, event) {
         var that = this;
         var name = data.path.split('/');
-        name = ucfirst(name[1])+ucfirst(name[0])+"Manager";
+        name = ucfirst(name[1])+ucfirst(name[0]);
         $("interface#"+name).remove();
         if($(element).is("[modal]")){ // unique
             $("interface").remove();
         }
         // get css and manager if not exists
-        if(!isDefined(window[name])){
+        if(!isDefined(window[name+"Manager"])){
             loadCss(basePath+'css/'+data.path+"/main.css");
             require([basePath+'js/'+data.path+"/manager.min.js"], ready);
         } else {
