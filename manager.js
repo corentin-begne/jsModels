@@ -138,6 +138,16 @@ var ManagerModel;
         $(element).parents("interface").remove();
     };
 
+    ManagerModel.prototype.getPartial = function(element, data, event) {
+        var that = this;
+        this.actionModel.getHtml(data.path, data, check);
+
+        function check(html){
+            $(data.target).html(html);
+            that.init($(data.target));
+        }
+    };
+
     ManagerModel.prototype.getInterface = function(element, data, event) {
         var that = this;
         var name = data.path.split('/');
