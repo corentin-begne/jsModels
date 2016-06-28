@@ -70,8 +70,9 @@ var ManagerModel;
             function createEvent(data){
                 if(isDefined(data.class)){
                     window[data.class].getInstance(loadedClass);                
+                } else {
+                    init();    
                 }
-                init();    
 
                 function loadedClass(instance){
                     data.class = instance;
