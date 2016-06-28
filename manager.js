@@ -75,7 +75,7 @@ var ManagerModel;
                 }
 
                 function loadedClass(instance){
-                    data.class = window[data.class];
+                    data.class = instance;
                     init();
                 }
 
