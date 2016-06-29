@@ -145,6 +145,7 @@ var ManagerModel;
         function check(html){
             $(data.target).html(html);
             that.init($(data.target));
+            that.action(element, data, event);
         }
     };
 
@@ -171,6 +172,7 @@ var ManagerModel;
                 $("body").append("<interface id='"+name+"'></interface>");
                 $("interface#"+name).append(html);
                 that.init($("interface#"+name));
+                that.action(element, data, event);
             }
         }
     };
