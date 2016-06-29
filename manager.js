@@ -169,7 +169,11 @@ var ManagerModel;
             that.actionModel.getHtml(data.path, data, loaded);
 
             function loaded(html){
-                $("body").append("<interface id='"+name+"'></interface>");
+                var target = data.target || "body";
+                if(data.target){
+                    $(target).empty();
+                }
+                $(target).append("<interface id='"+name+"'></interface>");
                 $("interface#"+name).append(html);
                 that.init($("interface#"+name));
                 that.action(element, data, event);
