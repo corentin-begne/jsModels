@@ -143,9 +143,13 @@ var ManagerModel;
         this.actionModel.getHtml(data.path, data, check);
 
         function check(html){
-            $(data.target).html(html);
-            that.init($(data.target));
-            that.action(element, data, event);
+            if(html === "error"){
+                window.location.href = "/";
+            } else {
+                $(data.target).html(html);
+                that.init($(data.target));
+                that.action(element, data, event);
+            }
         }
     };
 
@@ -169,14 +173,18 @@ var ManagerModel;
             that.actionModel.getHtml(data.path, data, loaded);
 
             function loaded(html){
-                var target = data.target || "body";
-                if(data.target){
-                    $(target).empty();
+                if(html === "error"){
+                    window.location.href = "/";
+                } else {
+                    var target = data.target || "body";
+                    if(data.target){
+                        $(target).empty();
+                    }
+                    $(target).append("<interface id='"+name+"'></interface>");
+                    $("interface#"+name).append(html);
+                    that.init($("interface#"+name));
+                    that.action(element, data, event);
                 }
-                $(target).append("<interface id='"+name+"'></interface>");
-                $("interface#"+name).append(html);
-                that.init($("interface#"+name));
-                that.action(element, data, event);
             }
         }
     };
