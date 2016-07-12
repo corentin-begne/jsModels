@@ -148,7 +148,6 @@ var ManagerModel;
             } else {
                 $(data.target).html(html);
                 that.init($(data.target));
-                that.action(element, data, event);
             }
         }
     };
@@ -183,7 +182,13 @@ var ManagerModel;
                     $(target).append("<interface id='"+name+"'></interface>");
                     $("interface#"+name).append(html);
                     that.init($("interface#"+name));
-                    that.action(element, data, event);
+                    window[name+"Manager"].getInstance(loadedManager);
+                }
+
+                function loadedManager(instance){
+                    if(instance.init){
+                        instance.init();
+                    }
                 }
             }
         }
