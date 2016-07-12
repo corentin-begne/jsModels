@@ -182,7 +182,7 @@ var ManagerModel;
                     $(target).append("<interface id='"+name+"'></interface>");
                     $("interface#"+name).append(html);
                     that.init($("interface#"+name));
-                    window[name+"Manager"].getInstance();
+                //    window[name+"Manager"].getInstance();
                 }
             }
         }
