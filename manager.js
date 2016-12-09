@@ -14,7 +14,7 @@ var ManagerModel;
         this.container = $("body");
 
         require([
-            "/bower_components/cb-models/action.min.js", 
+            "bower_components/cb-models/action", 
         ], loaded);
 
         function loaded(){
