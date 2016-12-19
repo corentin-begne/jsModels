@@ -163,7 +163,7 @@ var ManagerModel;
         // get css and manager if not exists
         if(!isDefined(window[name+"Manager"])){
             loadCss(basePath+'css/'+data.path+"/main.css");
-            require([basePath+'js/'+data.path+"/manager.min"], ready);
+            require([basePath.replace("/", "")+'js/'+data.path+"/manager.min"], ready);
         } else {
             ready();
         }
