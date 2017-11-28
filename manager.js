@@ -84,7 +84,7 @@ var ManagerModel;
                         data.type = "click";                    
                     }
                     if(data.type=== "init"){
-                        that[data.fn](element, data, event);
+                        that[data.fn](element, data);
                     } else {
                         $(element).unbind(data.type);
                         $(element).bind(data.type, sendEvent);
