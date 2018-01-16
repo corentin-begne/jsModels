@@ -27,7 +27,7 @@
 	},
 	"source": {
 		"include": [
-		  "/var/www/jsHelpers"
+		  "/var/www/jsModels"
 		]
 	},
 	"markdown": {
