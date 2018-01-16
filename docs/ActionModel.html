@@ -59,15 +59,23 @@
             
             <span class="subtitle">Methods</span>
             
+                <li data-name="ActionModel#api"><a href="ActionModel.html#api">api</a></li>
+            
+                <li data-name="ActionModel#apiForm"><a href="ActionModel.html#apiForm">apiForm</a></li>
+            
+                <li data-name="ActionModel#apiNoLoad"><a href="ActionModel.html#apiNoLoad">apiNoLoad</a></li>
+            
+                <li data-name="ActionModel#getFormHtml"><a href="ActionModel.html#getFormHtml">getFormHtml</a></li>
+            
+                <li data-name="ActionModel#getHtml"><a href="ActionModel.html#getHtml">getHtml</a></li>
+            
                 <li data-name="ActionModel#redirect"><a href="ActionModel.html#redirect">redirect</a></li>
             
                 <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
             
                 <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
             
-                <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
-            
-                <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
+                <li data-name="ActionModel#sendDataNoLoad"><a href="ActionModel.html#sendDataNoLoad">sendDataNoLoad</a></li>
             
             </ul>
             <ul class="events itemMembers">
@@ -141,7 +149,7 @@
     
     
     <div class="description">
-        <p>Manage all global manager actions</p>
+        <p>Manage all http request type</p>
     </div>
     
 
@@ -216,43 +224,6 @@
             
             
             <td class="description last"><p>Instance of ActionHelper</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>interface</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">InterfaceHelper</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    new InterfaceHelper()
-                
-                </td>
-            
-            
-            <td class="description last"><p>Instance of InterfaceHelper</p></td>
         </tr>
 	
 	
@@ -367,6 +338,921 @@
             
 <dt>
     <div class="nameContainer">
+        <h4 class="name" id="api">
+            
+            api<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line100">line 100</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Make ajax api call</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Action name</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Form data to send to the action</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Callback trigger on success with Object data</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="apiForm">
+            
+            apiForm<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line89">line 89</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Make ajax api call sending form data</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Action name</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">FormData</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Form data to send to the action</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Callback trigger on success with Object data</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="apiNoLoad">
+            
+            apiNoLoad<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line111">line 111</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Make ajax api call without loader</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Action name</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Form data to send to the action</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Callback trigger on success with Object data</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getFormHtml">
+            
+            getFormHtml<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line60">line 60</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Make an ajax call sending a form data with response in plain text</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Route to call</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">FormData</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Form data to send in post</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Tiggered on complete with result in param</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="getHtml">
+            
+            getHtml<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line43">line 43</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Make an ajax call with response in plain text</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Route to call</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Data to send in post</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>cb</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Tiggered on complete with result in param</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
         <h4 class="name" id="redirect">
             
             redirect<span class="signature">(path)</span>
@@ -374,7 +1260,7 @@
     
         
         <div class="tag-source">
-            <a href="action.js.html">action.js</a>, <a href="action.js.html#line146">line 146</a>
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line175">line 175</a>
         </div>
         
     </div>
@@ -485,12 +1371,12 @@
     <div class="nameContainer">
         <h4 class="name" id="sendData">
             
-            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>, <span class="optional">noload</span>)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="action.js.html">action.js</a>, <a href="action.js.html#line44">line 44</a>
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line122">line 122</a>
         </div>
         
     </div>
@@ -501,7 +1387,7 @@
     
     
     <div class="description">
-        <p>Send data to the manager action</p>
+        <p>Make ajax call with response in json</p>
     </div>
     
 
@@ -619,6 +1505,36 @@
         </tr>
 	
 	
+	
+        <tr>
+            
+                <td class="name"><code>noload</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Specify if loader must be used or no</p></td>
+        </tr>
+	
+	
 	</tbody>
 </table>
     
@@ -668,12 +1584,12 @@
     <div class="nameContainer">
         <h4 class="name" id="sendData">
             
-            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>, <span class="optional">noload</span>)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="action.js.html">action.js</a>, <a href="action.js.html#line61">line 61</a>
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line143">line 143</a>
         </div>
         
     </div>
@@ -684,7 +1600,7 @@
     
     
     <div class="description">
-        <p>Send data to the manager action</p>
+        <p>Make ajax call sending form data with response in json</p>
     </div>
     
 
@@ -751,7 +1667,7 @@
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">FormData</span>
 
 
             
@@ -768,7 +1684,7 @@
                         
                     
                 
-                <p>Data to send to the action</p></td>
+                <p>Form data to send to the action</p></td>
         </tr>
 	
 	
@@ -799,6 +1715,36 @@
                     
                 
                 <p>Callback trigger on success with Object data</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>noload</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
+                
+                <p>Specify if loader must be used or no</p></td>
         </tr>
 	
 	
@@ -849,14 +1795,14 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="sendData">
+        <h4 class="name" id="sendDataNoLoad">
             
-            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
+            sendDataNoLoad<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="action.js.html">action.js</a>, <a href="action.js.html#line79">line 79</a>
+            <a href="action.js.html">action.js</a>, <a href="action.js.html#line78">line 78</a>
         </div>
         
     </div>
@@ -867,190 +1813,7 @@
     
     
     <div class="description">
-        <p>Send data to the manager action</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>Action name</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>Data to send to the action</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>cb</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>Callback trigger on success with Object data</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="sendData">
-            
-            sendData<span class="signature">(<span class="optional">path</span>, <span class="optional">data</span>, <span class="optional">cb</span>)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="action.js.html">action.js</a>, <a href="action.js.html#line115">line 115</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Send data to the manager action</p>
+        <p>Make ajax call without loader and with response in json</p>
     </div>
     
 
@@ -1228,7 +1991,7 @@
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 16 2018 15:23:21 GMT+0100 (CET)
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jan 16 2018 16:15:30 GMT+0100 (CET)
         </footer>
     </div>
 </div>
