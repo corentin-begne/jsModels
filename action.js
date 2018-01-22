@@ -46,6 +46,7 @@ var ActionModel;
      * @param  {String}   [path] Route to call
      * @param  {Object}   [data] Data to send in post
      * @param  {Function} [cb]   Tiggered on complete with result in param
+     * @param  {Boolean} [noload] Specify if loader must be used or no
      */
     ActionModel.prototype.getHtml = function(path, data, cb, noload){
         var options = {
