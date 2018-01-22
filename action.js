@@ -47,14 +47,28 @@ var ActionModel;
      * @param  {Object}   [data] Data to send in post
      * @param  {Function} [cb]   Tiggered on complete with result in param
      */
-    ActionModel.prototype.getHtml = function(path, data, cb){
+    ActionModel.prototype.getHtml = function(path, data, cb, noload){
         var options = {
             type: "post",
             action: path,
             cb: cb,
             dataType: "text"
         };
+        if(isDefined(noload)){
+            options.noload = noload;
+        }
         this.action.execute(data, options);
+    };
+
+    /**
+     * @method ActionModel#getHtmlNoLoad
+     * @description Make an ajax call with response in plain text without loader
+     * @param  {String}   [path] Route to call
+     * @param  {Object}   [data] Data to send in post
+     * @param  {Function} [cb]   Tiggered on complete with result in param
+     */
+    ActionModel.prototype.getHtmlNoLoad = function(path, data, cb){
+        this.getHtml(path, data, cb, true);
     };
 
     /**
