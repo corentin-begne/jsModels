@@ -176,15 +176,20 @@ var ActionModel;
         }
         this.action.execute(data, options);
     };
-    ActionModel.prototype.sendFormUpload = function(path, data, cb){
+    ActionModel.prototype.sendFormUpload = function(path, data, cb, progress, complete){
         var options = {
             type: "post",
             action: path,
             cb: cb,
             dataType: "json",
             upload:true,
-            form: true
+            form: true,
+            progress:progress,
+            complete:complete
         };
+        if(isDefined(progress)){
+            options.noload = true;
+        }
         this.action.execute(data, options);
     };
     /**
