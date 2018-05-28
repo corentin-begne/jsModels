@@ -16,7 +16,7 @@ var ActionModel;
         ], loaded);
 
         function loaded(){
-            that.action = ActionHelper.getInstance(loadedAction);
+            ActionHelper.getInstance(loadedAction);
 
             function loadedAction(instance){
                 that.action = instance;
