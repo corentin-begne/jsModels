@@ -35,10 +35,11 @@ class ManagerModel{
         function bindEvent(data = {}){
             Object.assign(data, {
                 type: data.type || that.default,
-                data: new Map(data.data || [])
+                data: new Map(data.data || []),
+                class: data.class || "manager"
             });
-            if(!data.class || !data.name){
-                console.error("class and name must be defined for the event", $(element));         
+            if(!data.name){
+                console.error("name must be defined for the event", $(element));         
                 return;       
             }
 
