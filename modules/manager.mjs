@@ -50,7 +50,8 @@ class ManagerModel{
                 $(element).bind(data.type, sendEvent);
             }
 
-            function sendEvent(event){                
+            function sendEvent(event){      
+                element = this;           
                 if(data.preventDefault){
                     event.preventDefault();
                 }
