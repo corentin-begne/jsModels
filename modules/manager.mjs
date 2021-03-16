@@ -39,10 +39,10 @@ class ManagerModel{
                 data: new Map(data.data || []),
                 class: data.class || "manager"
             });
-            if(!data.name){
+           /* if(!data.name){
                 console.error("name must be defined for the event", $(element));         
                 return;       
-            }
+            }*/
 
             if(data.type === "init"){
                 execute();
