@@ -20,7 +20,8 @@ class ManagerModel{
 
     init(container = this.body) {
         var that = this;
-        for(var element of $(container).filter(".action")){
+        const main = container !== this.body ? $("<div></div>").append(container) : container;
+        for(var element of main.find(".action")){
             if(!$(element).is("[action-data]")){
                 continue;
             }
