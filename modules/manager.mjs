@@ -59,7 +59,9 @@ class ManagerModel{
                 if(data.stopPropagation){
                     event.stopPropagation();
                 }
-                execute(event);
+                if(data.name){
+                    execute(event);
+                }
             }
 
             function execute(event){
