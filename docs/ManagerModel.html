@@ -50,10 +50,6 @@
             </span>
             <ul class="members itemMembers">
             
-            <span class="subtitle">Members</span>
-            
-                <li data-name="ActionModel#getInstance"><a href="ActionModel.html#getInstance">getInstance</a></li>
-            
             </ul>
             <ul class="typedefs itemMembers">
             
@@ -68,19 +64,25 @@
             
                 <li data-name="ActionModel#apiNoLoad"><a href="ActionModel.html#apiNoLoad">apiNoLoad</a></li>
             
-                <li data-name="ActionModel#getFormHtml"><a href="ActionModel.html#getFormHtml">getFormHtml</a></li>
-            
-                <li data-name="ActionModel#getHtml"><a href="ActionModel.html#getHtml">getHtml</a></li>
-            
-                <li data-name="ActionModel#getHtmlNoLoad"><a href="ActionModel.html#getHtmlNoLoad">getHtmlNoLoad</a></li>
-            
                 <li data-name="ActionModel#redirect"><a href="ActionModel.html#redirect">redirect</a></li>
             
-                <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
+                <li data-name="ActionModel#send"><a href="ActionModel.html#send">send</a></li>
             
                 <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
             
                 <li data-name="ActionModel#sendDataNoLoad"><a href="ActionModel.html#sendDataNoLoad">sendDataNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendFormData"><a href="ActionModel.html#sendFormData">sendFormData</a></li>
+            
+                <li data-name="ActionModel#sendFormDataNoLoad"><a href="ActionModel.html#sendFormDataNoLoad">sendFormDataNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendFormHtml"><a href="ActionModel.html#sendFormHtml">sendFormHtml</a></li>
+            
+                <li data-name="ActionModel#sendFormHtmlNoLoad"><a href="ActionModel.html#sendFormHtmlNoLoad">sendFormHtmlNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendHtml"><a href="ActionModel.html#sendHtml">sendHtml</a></li>
+            
+                <li data-name="ActionModel#sendHtmlNoLoad"><a href="ActionModel.html#sendHtmlNoLoad">sendHtmlNoLoad</a></li>
             
             </ul>
             <ul class="events itemMembers">
@@ -95,10 +97,6 @@
             </span>
             <ul class="members itemMembers">
             
-            <span class="subtitle">Members</span>
-            
-                <li data-name="ManagerModel#getInstance"><a href="ManagerModel.html#getInstance">getInstance</a></li>
-            
             </ul>
             <ul class="typedefs itemMembers">
             
@@ -109,24 +107,20 @@
             
                 <li data-name="ManagerModel#action"><a href="ManagerModel.html#action">action</a></li>
             
-                <li data-name="ManagerModel#autocompletion"><a href="ManagerModel.html#autocompletion">autocompletion</a></li>
+                <li data-name="ManagerModel#bindEvent"><a href="ManagerModel.html#bindEvent">bindEvent</a></li>
             
-                <li data-name="ManagerModel#closeInterface"><a href="ManagerModel.html#closeInterface">closeInterface</a></li>
-            
-                <li data-name="ManagerModel#getInterface"><a href="ManagerModel.html#getInterface">getInterface</a></li>
-            
-                <li data-name="ManagerModel#getPartial"><a href="ManagerModel.html#getPartial">getPartial</a></li>
+                <li data-name="ManagerModel#execute"><a href="ManagerModel.html#execute">execute</a></li>
             
                 <li data-name="ManagerModel#getVars"><a href="ManagerModel.html#getVars">getVars</a></li>
             
                 <li data-name="ManagerModel#init"><a href="ManagerModel.html#init">init</a></li>
             
-                <li data-name="ManagerModel#pagination"><a href="ManagerModel.html#pagination">pagination</a></li>
-            
-                <li data-name="ManagerModel#redirect"><a href="ManagerModel.html#redirect">redirect</a></li>
-            
             </ul>
             <ul class="events itemMembers">
+            
+            <span class="subtitle">Events</span>
+            
+                <li data-name="ManagerModel#event:sendEvent"><a href="ManagerModel.html#event:sendEvent">sendEvent</a></li>
             
             </ul>
         </li>
@@ -163,7 +157,7 @@
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line5">line 5</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line5">line 5</a>
         </div>
         
     </div>
@@ -174,7 +168,7 @@
     
     
     <div class="description">
-        <p>Manage global manager functions and actions</p>
+        <p>Manage global manager/helpers functions and actions - singleton</p>
     </div>
     
 
@@ -218,7 +212,7 @@
 	
         <tr>
             
-                <td class="name"><code>container</code></td>
+                <td class="name"><code>body</code></td>
             
             
             <td class="type">
@@ -248,20 +242,20 @@
                 </td>
             
             
-            <td class="description last"><p>Root Dom element to parse events definition</p></td>
+            <td class="description last"><p>Root Dom element to parse actions</p></td>
         </tr>
 	
 	
 	
         <tr>
             
-                <td class="name"><code>action</code></td>
+                <td class="name"><code>default</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type"><a href="ActionModel.html">ActionModel</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -280,12 +274,12 @@
             
                 <td class="default">
                 
-                    new ActionModel()
+                    "click"
                 
                 </td>
             
             
-            <td class="description last"><p>Instance of ActionModel</p></td>
+            <td class="description last"><p>Default event binded</p></td>
         </tr>
 	
 	
@@ -343,55 +337,6 @@
     
     
     
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="getInstance">getInstance</h4>
-    </div>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        <p>get the single class instance</p>
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        </dl>
-    
     
     
         <h3 class="subsection-title">Methods</h3>
@@ -402,12 +347,12 @@
     <div class="nameContainer">
         <h4 class="name" id="action">
             
-            action<span class="signature">(<span class="optional">element</span>, <span class="optional">data</span>, <span class="optional">event</span>)</span>
+            action<span class="signature">(element, data, event)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line201">line 201</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line154">line 154</a>
         </div>
         
     </div>
@@ -465,13 +410,6 @@
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
                 <p>DOMElement associated with the event</p></td>
         </tr>
 	
@@ -495,14 +433,98 @@
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
+                <p>Event data</p>
                 
-                <p>Event data</p></td>
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>class</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Helper class to map</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Name of the helper function to map</p></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Map.&lt;String, *></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Custom event data</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -515,7 +537,7 @@
             <td class="type">
             
                 
-<span class="param-type">MouseEvent</span>
+<span class="param-type">Event</span>
 
 
             
@@ -525,14 +547,7 @@
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>DOM Event</p></td>
+                <p>DOM Event source</p></td>
         </tr>
 	
 	
@@ -577,33 +592,20 @@
     
     
     
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'type' => 'mouseup', // javascript event, click by default can be set to init to be executed on initialisation
-  'fn' => 'action',
-  'class' => 'TestSampleManager', // class with a getInstance function
-  'name' => 'save' // function to use in the specified class to map to
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
 </dd>
 
         
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="autocompletion">
+        <h4 class="name" id="bindEvent">
             
-            autocompletion<span class="signature">(<span class="optional">element</span>, <span class="optional">data</span>)</span>
+            <span class="type-signature ">private</span>bindEvent<span class="signature">(<span class="optional">data</span>)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line172">line 172</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line96">line 96</a>
         </div>
         
     </div>
@@ -614,7 +616,7 @@
     
     
     <div class="description">
-        <p>Initialize an autocompletion functionality to a DOMElement</p>
+        <p>Bind parsed Event</p>
     </div>
     
 
@@ -641,36 +643,6 @@
 	</thead>
 	
 	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">DOMElement</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>DOMElement to use</p></td>
-        </tr>
-	
 	
 	
         <tr>
@@ -698,102 +670,8 @@
                         
                     
                 
-                <p>Contain all data supported and callback needed by AutocompletionHelper</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'type' => 'init',
-  'fn' => 'autocompletion',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'cbSelect' => 'select',
-      'cbFind' => 'find',
-      'cbBlur' => 'blur'
-  ] 
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="closeInterface">
-            
-            closeInterface<span class="signature">(<span class="optional">element</span>)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line248">line 248</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Remove an interface</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
+                
+                
 
 <table class="params">
     <thead>
@@ -805,6 +683,8 @@
 		<th>Type</th>
 		
 		
+		<th>Default</th>
+		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -815,18 +695,24 @@
 	
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>type</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">DOMElement</span>
+<span class="param-type">String</span>
 
 
             
             </td>
             
+            
+                <td class="default">
+                
+                    this.default
+                
+                </td>
             
             
             <td class="description last">
@@ -838,129 +724,31 @@
                         
                     
                 
-                <p>DOMElement used to close the interface, must be inside</p></td>
+                <p>Event to bind</p></td>
         </tr>
 	
 	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'fn' => 'closeInterface',
-  'class' => 'TestSampleManager' 
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="getInterface">
-            
-            getInterface<span class="signature">(<span class="optional">element</span>, <span class="optional">data</span>)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line295">line 295</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Get an Interface and append it in DOM, can be modal adding atrtibute to element</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
 	
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>class</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">DOMElement</span>
+<span class="param-type">String</span>
 
 
             
             </td>
             
+            
+                <td class="default">
+                
+                    "manager"
+                
+                </td>
             
             
             <td class="description last">
@@ -972,7 +760,7 @@
                         
                     
                 
-                <p>DOMElement associated with the event</p></td>
+                <p>Helper class that will be used</p></td>
         </tr>
 	
 	
@@ -992,6 +780,12 @@
             </td>
             
             
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
             
             <td class="description last">
                 
@@ -1002,7 +796,13 @@
                         
                     
                 
-                <p>Contain at least path and target</p></td>
+                <p>Must be an object that can be parsed in Map</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+            </td>
         </tr>
 	
 	
@@ -1047,44 +847,20 @@
     
     
     
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><p><b><u>simple :</u></b></p>
-<pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'fn' => 'getInterface',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'path' => 'interface/video',
-      'target' => '.content'
-  ] 
-])'>&lt;/div></code></pre><p><b><u>modal :</u></b></p>
-<pre class="prettyprint source"><code>&lt;div class='action' modal action-data='&lt;?=json_encode([
-  'fn' => 'getInterface',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'path' => 'interface/video',
-      'target' => '.content'
-  ] 
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
 </dd>
 
         
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="getPartial">
+        <h4 class="name" id="execute">
             
-            getPartial<span class="signature">(<span class="optional">element</span>, <span class="optional">data</span>)</span>
+            <span class="type-signature ">private</span>execute<span class="signature">(event)</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line264">line 264</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line141">line 141</a>
         </div>
         
     </div>
@@ -1095,7 +871,7 @@
     
     
     <div class="description">
-        <p>Get HTML block and append it to the target DOMElement</p>
+        <p>Execute public internal function, cannot be configured for now, only action is used.</p>
     </div>
     
 
@@ -1126,13 +902,13 @@
 	
         <tr>
             
-                <td class="name"><code>element</code></td>
+                <td class="name"><code>event</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">DOMElement</span>
+<span class="param-type">Event</span>
 
 
             
@@ -1142,44 +918,7 @@
             
             <td class="description last">
                 
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>DOMElement associated with the event</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>Contain at least path and target</p></td>
+                <p>Current browser Event</p></td>
         </tr>
 	
 	
@@ -1223,21 +962,6 @@
     
     
     
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'fn' => 'getPartial',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'path' => 'partial/videos/list',
-      'target' => '.videos'
-  ] 
-])'>&lt;/div></code></pre></code></pre>
-    
-
     
 </dd>
 
@@ -1247,12 +971,12 @@
     <div class="nameContainer">
         <h4 class="name" id="getVars">
             
-            getVars<span class="signature">(<span class="optional">container</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Object}</span>
+            getVars<span class="signature">(<span class="optional">container</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{Map.&lt;String, String>}</span>
         </h4>
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line46">line 46</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line20">line 20</a>
         </div>
         
     </div>
@@ -1317,7 +1041,7 @@
                         
                     
                 
-                <p>Root element to start the parse</p></td>
+                <p>Root element to start parsing</p></td>
         </tr>
 	
 	
@@ -1378,7 +1102,7 @@
             
             <td class="type">
             
-                        Object
+                        Map.&lt;String, String>
                         
                     
             </td>
@@ -1401,8 +1125,12 @@
         'id'=>1,
         'name'=>'test'      
     ]
-])?></code></pre><p><b><u>manager.js :</u></b></p>
-<pre class="prettyprint source"><code>var data = this.manager.getVars(&quot;body&quot;);</code></pre></code></pre>
+])?>
+</code></pre>
+<p><b><u>manager.js :</u></b></p>
+<pre class="prettyprint source"><code>import manager from &quot;[...]/cb-models/modules/manager.mjs&quot;;
+const data = manager.getVars(&quot;body&quot;);
+</code></pre></code></pre>
     
 
     
@@ -1419,7 +1147,7 @@
     
         
         <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line77">line 77</a>
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line50">line 50</a>
         </div>
         
     </div>
@@ -1430,7 +1158,7 @@
     
     
     <div class="description">
-        <p>Parse and map all defined event in DOM (with class action and attribute action-data to define event data) preventDefault and stopPropagation can be used as attribute.</p>
+        <p>Parse and map all defined event in DOM (with class action and attribute action-data to define events data).</p>
     </div>
     
 
@@ -1484,7 +1212,7 @@
                         
                     
                 
-                <p>Root element to start the parse</p></td>
+                <p>Root element to start the parsing</p></td>
         </tr>
 	
 	
@@ -1534,362 +1262,28 @@
 
     
     <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'type' => 'mouseup', // javascript event, click by default can be init to be executed on initialisation
-  'fn' => 'action', // action type [action|autocompletion|pagination|closeInterface|getPartial|getInterface|redirect]
-  'class' => 'TestSampleManager', // class with a getInstance function
-  'name' => 'save' // function to use in the specified class to map to
-  'data' => [] // can be any type of data by dont forget to $.parseJSON if its an array
-])'>&lt;/div></code></pre><p>Can also be an array of events to define multiple</p>
+  'type' => 'mousedown', // optional - javascript event or init (executed on bind), this.default by default (click)
+  'class' => 'user', // optional - class used to map the function, only helpers added in manager are allowed. Current manager is used by default
+  'name' => 'check', // required - function to use in the specified class to map to
+  'stopPropagation' => true, // optional - to stop or not the event propagation, default false
+  'preventDefault' => true, // optional - to prevent or not the event native function, default false
+  'data' => [
+     ['foo' => 'bar']
+   ] // can be any type of data but respect this format, it will be parsed in Map type
+])'>&lt;/div>
+</code></pre>
+<p>Can also be an array of events to define multiple</p>
 <pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
    [
-      'type' => 'mouseout', // javascript event, click by default can be init to be executed on initialisation
-      'fn' => 'action',
-      'class' => 'TestSampleManager', // class with a getInstance function
-      'name' => 'removeActive' // function to use in the specified class to map to
+      'type' => 'mouseout',
+      'name' => 'removeActive'
   ],
   [
       'type' => 'mouseover',
-      'fn' => 'action',
-      'class' => 'TestSampleManager',
       'name' => 'addActive'
   ]
-])'>&lt;/div></code></pre><p>Add attributes to stopPropagation or preventDefault event</p>
-<pre class="prettyprint source"><code>&lt;div class='action' preventDefault stopPropagation action-data='&lt;?=json_encode([
-  'type' => 'mouseup',
-  'fn' => 'action',
-  'class' => 'TestSampleManager',
-  'name' => 'save'
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="pagination">
-            
-            pagination<span class="signature">(<span class="optional">element</span>, <span class="optional">data</span>)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line223">line 223</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">DOMElement</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>DOMElement container for the pagination</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>Contain all data supported and callback needed by PaginationHelper</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' action-data='&lt;?=json_encode([
-  'type' => 'init',
-  'fn' => 'pagination',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'cbContent' => 'content',
-      'nbPage' => 5
-  ] 
-])'>&lt;/div></code></pre></code></pre>
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="redirect">
-            
-            redirect<span class="signature">(<span class="optional">element</span>, data)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            <a href="manager.js.html">manager.js</a>, <a href="manager.js.html#line366">line 366</a>
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        <p>Can redirect an user to an url according to window.open documentation with name specified by the type attribute of the DOMElement</p>
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>element</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">DOMElement</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                <p>DOMElement associated with the event</p></td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                <p>Contain path</p></td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-        <h5>Example</h5>
-        
-
-    
-    <pre class="prettyprint"><code><pre class="prettyprint source"><code>&lt;div class='action' type=&quot;self&quot; action-data='&lt;?=json_encode([
-  'fn' => 'redirect',
-  'class' => 'TestSampleManager',
-  'data' => [
-      'path' => 'user/login'
-  ] 
-])'>&lt;/div></code></pre></code></pre>
+])'>&lt;/div>
+</code></pre></code></pre>
     
 
     
@@ -1900,6 +1294,126 @@
     
     
     
+    
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="event:sendEvent">
+            
+            sendEvent
+        </h4>
+    
+        
+        <div class="tag-source">
+            <a href="manager.mjs.html">manager.mjs</a>, <a href="manager.mjs.html#line123">line 123</a>
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        <p>Execute binded Event</p>
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Event</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                <p>Current browser Event</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
     
 </article>
 
@@ -1912,7 +1426,7 @@
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jan 22 2018 16:55:48 GMT+0100 (CET)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sun Jul 16 2023 18:55:29 GMT+0200 (heure d’été d’Europe centrale)
         </footer>
     </div>
 </div>

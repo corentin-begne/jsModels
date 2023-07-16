@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Source: manager.mjs</title>
+    
+    
+    
+    
+    
+    <meta property="og:title" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    
+    <meta property="og:url" content=""/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":true,"cleverLinks":true,"default":{"outputSourceFiles":true},"applicationName":"JsModels","disqus":"","googleAnalytics":"","openGraph":{"title":"","type":"website","image":"","site_name":"","url":""},"meta":{"title":"","description":"","keyword":""}};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">JsModels</a></h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="ActionModel">
+            <span class="title">
+                <a href="ActionModel.html">ActionModel</a>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="ActionModel#api"><a href="ActionModel.html#api">api</a></li>
+            
+                <li data-name="ActionModel#apiForm"><a href="ActionModel.html#apiForm">apiForm</a></li>
+            
+                <li data-name="ActionModel#apiNoLoad"><a href="ActionModel.html#apiNoLoad">apiNoLoad</a></li>
+            
+                <li data-name="ActionModel#redirect"><a href="ActionModel.html#redirect">redirect</a></li>
+            
+                <li data-name="ActionModel#send"><a href="ActionModel.html#send">send</a></li>
+            
+                <li data-name="ActionModel#sendData"><a href="ActionModel.html#sendData">sendData</a></li>
+            
+                <li data-name="ActionModel#sendDataNoLoad"><a href="ActionModel.html#sendDataNoLoad">sendDataNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendFormData"><a href="ActionModel.html#sendFormData">sendFormData</a></li>
+            
+                <li data-name="ActionModel#sendFormDataNoLoad"><a href="ActionModel.html#sendFormDataNoLoad">sendFormDataNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendFormHtml"><a href="ActionModel.html#sendFormHtml">sendFormHtml</a></li>
+            
+                <li data-name="ActionModel#sendFormHtmlNoLoad"><a href="ActionModel.html#sendFormHtmlNoLoad">sendFormHtmlNoLoad</a></li>
+            
+                <li data-name="ActionModel#sendHtml"><a href="ActionModel.html#sendHtml">sendHtml</a></li>
+            
+                <li data-name="ActionModel#sendHtmlNoLoad"><a href="ActionModel.html#sendHtmlNoLoad">sendHtmlNoLoad</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="ManagerModel">
+            <span class="title">
+                <a href="ManagerModel.html">ManagerModel</a>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="ManagerModel#action"><a href="ManagerModel.html#action">action</a></li>
+            
+                <li data-name="ManagerModel#bindEvent"><a href="ManagerModel.html#bindEvent">bindEvent</a></li>
+            
+                <li data-name="ManagerModel#execute"><a href="ManagerModel.html#execute">execute</a></li>
+            
+                <li data-name="ManagerModel#getVars"><a href="ManagerModel.html#getVars">getVars</a></li>
+            
+                <li data-name="ManagerModel#init"><a href="ManagerModel.html#init">init</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            <span class="subtitle">Events</span>
+            
+                <li data-name="ManagerModel#event:sendEvent"><a href="ManagerModel.html#event:sendEvent">sendEvent</a></li>
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="manager.mjs.html">Source: manager.mjs</h1>
+        
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source "><code>import action from "./action.mjs";
+import js from "../../cb-helpers/modules/js.mjs";
+import $ from "../../jQuery/src/jquery.js";
+
+/**
+* @name ManagerModel
+* @class
+* @hideconstructor
+* @property {DOMElement} [body = $("body")] Root Dom element to parse actions
+* @property {String} [default = "click"] Default event binded
+* @description Manage global manager/helpers functions and actions - singleton
+*/
+class ManagerModel{
+    
+    constructor(){
+        this.body = $("body");
+        this.default = "click";
+    }
+
+    /**
+     * @method  ManagerModel#getVars
+     * @description Get all data append by the server under elements having class varInterface and remove them
+     * @param  {DOMElement} [container] Root element to start parsing
+     * @return {Map.&lt;String, String>} All data parsed
+     * @example 
+     * &lt;b>&lt;u>view :&lt;/u>&lt;/b>
+     * ```
+     * &lt;?=$this->partial('/data', [
+     *     'data' => [
+     *         'id'=>1,
+     *         'name'=>'test'      
+     *     ]
+     * ])?>
+     * ```
+     * &lt;b>&lt;u>manager.js :&lt;/u>&lt;/b>
+     * ```
+     * import manager from "[...]/cb-models/modules/manager.mjs";
+     * const data = manager.getVars("body");
+     * ```
+     */
+    getVars(container = this.body){
+        const data = new Map();
+        for(let element of $(container).find(".varInterface")){
+            data.set($(element).attr("id"), $(element).html().trim());
+            $(element).remove();
+        }
+        return data;
+    }
+
+    /**
+     * @method ManagerModel#init
+     * @description Parse and map all defined event in DOM (with class action and attribute action-data to define events data).
+     * @param  {DOMElement} [container] Root element to start the parsing
+     * @example
+     * ```
+     * &lt;div class='action' action-data='&lt;?=json_encode([
+     *   'type' => 'mousedown', // optional - javascript event or init (executed on bind), this.default by default (click)
+     *   'class' => 'user', // optional - class used to map the function, only helpers added in manager are allowed. Current manager is used by default
+     *   'name' => 'check', // required - function to use in the specified class to map to
+     *   'stopPropagation' => true, // optional - to stop or not the event propagation, default false
+     *   'preventDefault' => true, // optional - to prevent or not the event native function, default false
+     *   'data' => [
+     *      ['foo' => 'bar']
+     *    ] // can be any type of data but respect this format, it will be parsed in Map type
+     * ])'>&lt;/div>
+     * ```
+     * Can also be an array of events to define multiple
+     * ```
+     * &lt;div class='action' action-data='&lt;?=json_encode([
+     *    [
+     *       'type' => 'mouseout',
+     *       'name' => 'removeActive'
+     *   ],
+     *   [
+     *       'type' => 'mouseover',
+     *       'name' => 'addActive'
+     *   ]
+     * ])'>&lt;/div>
+     * ```
+     */
+    init(container = this.body) {
+        var that = this;
+        const main = container !== this.body ? $("&lt;div>&lt;/div>").append(container) : container;
+        for(var element of main.find(".action")){
+            if(!$(element).is("[action-data]")){
+                continue;
+            }
+            let events = JSON.parse($(element).attr("action-data"));
+            if(Array.isArray(events)){
+                events.forEach(bindEvent);
+            } else {
+                bindEvent(events);
+            }
+        }  
+
+        /**
+         * @method ManagerModel#bindEvent
+         * @private
+         * @description Bind parsed Event
+         * @param {Object} [data] 
+         * @param {String} [data.type = this.default] Event to bind
+         * @param {String} [data.class = "manager"] Helper class that will be used
+         * @param {Object} [data.data = []] Must be an object that can be parsed in Map
+         */
+        function bindEvent(data = {}){
+            Object.assign(data, {
+                type: data.type || that.default,
+                data: new Map(data.data || []),
+                class: data.class || "manager"
+            });
+           /* if(!data.name){
+                console.error("name must be defined for the event", $(element));         
+                return;       
+            }*/
+
+            if(data.type === "init"){
+                execute();
+            } else {
+                $(element).unbind(data.type);
+                $(element).bind(data.type, sendEvent);
+            }
+
+            /**
+             * @event ManagerModel#sendEvent
+             * @description Execute binded Event
+             * @param {Event} event Current browser Event 
+             */
+            function sendEvent(event){      
+                element = this;           
+                if(data.preventDefault){
+                    event.preventDefault();
+                }
+                if(data.stopPropagation){
+                    event.stopPropagation();
+                }
+                if(data.name){
+                    execute(event);
+                }
+            }
+
+            /**
+             * @method ManagerModel#execute
+             * @private
+             * @description Execute public internal function, cannot be configured for now, only action is used.
+             * @param {Event} event Current browser Event 
+             */
+            function execute(event){
+                const fn = that[data.fn] || that.action;
+                fn(element, data, event);
+            }
+        }
+    }
+
+    /**
+     * @method ManagerModel#action
+     * @description Trigger the function associated with the defined event
+     * @param  {DOMElement} element DOMElement associated with the event
+     * @param  {Object} data Event data
+     * @param {String} data.class Helper class to map
+     * @param {String} data.name Name of the helper function to map
+     * @param {Map.&lt;String, *>} data.data Custom event data
+     * @param  {Event} event DOM Event source
+     */
+    action(element, data, event){
+        if(!js.helpers.has(data.class)){
+            console.error(`class ${data.class} not found in helpers`);
+            return;
+        }
+        const instance = js.helpers.get(data.class).instance;
+        if(!instance[data.name]){
+            console.error(`function ${data.name} must exist in ${data.class}`);
+            return;
+        }
+        instance[data.name](element, data.data, event);
+    }
+}
+
+const managerModel = new ManagerModel();
+export default managerModel;</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Sun Jul 16 2023 18:55:29 GMT+0200 (heure d’été d’Europe centrale)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
